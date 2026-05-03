@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><title>Student Form</title></head>
+<body>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>Name:</label>
+    <input type="text" name="name" value="{{ student.name|default:'' }}"><br>
+
+    <label>Age:</label>
+    <input type="number" name="age" value="{{ student.age|default:'' }}"><br>
+
+    <label>Location:</label>
+    <input type="text" name="location" value="{{ student.loacation|default:'' }}"><br>
+
+    <label>Email:</label>
+    <input type="email" name="email" value="{{ student.email|default:'' }}"><br>
+
+    <label>Course:</label>
+    <input type="text" name="course" value="{{ student.course|default:'' }}"><br>
+
+    <button type="submit">Save</button>
+</form>
+
+
+
+    
+
+</body>
+</html>
