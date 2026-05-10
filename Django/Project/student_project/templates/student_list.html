@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+    <style>
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .update-btn, .delete-btn {
+            padding: 6px 12px;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+        .update-btn {
+            background-color: #007bff;
+        }
+        .update-btn:hover {
+            background-color: #0056b3;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+        }
+        .delete-btn:hover {
+            background-color: #a71d2a;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Student List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>age</th>
+                <th>location</th>
+                <th> course </th>
+                <th>Actions</th> <!-- Column for buttons -->
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for i in students %}
+
+
+            <tr>
+                <td>{{ i.student_id }}</td>
+                <td>{{ i.name }}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.age }}</td>
+                <td>{{ i.loacation }}</td>
+                <td>{{ i.course }}</td>
+
+
+
+                 <td>
+                    <a href="{% url 'student_update' i.student_id %}" class="update-btn">Update</a>
+                    <a href="{% url 'student_delete' i.student_id %}" class="delete-btn">Delete</a> 
+                </td> 
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+</body>
+</html>
